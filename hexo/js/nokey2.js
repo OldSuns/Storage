@@ -1,4 +1,4 @@
-// 禁止打開控制臺 查看源码等等
+// 禁止打开控制台和右键
 function forbidden_control() {
     $.extend({
             message: function(a) {
