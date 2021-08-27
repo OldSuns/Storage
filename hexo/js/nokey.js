@@ -33,10 +33,18 @@ function forbidden_control() {
             }
         }),
         document.onkeydown = function(e) {
-            if (123 == e.keyCode || e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode) || (e.ctrlKey && 85 === e.keyCode)) 
+            if (123 == e.keyCode) 
 				return $.message({
                 message: "控制台躲起来啦",
                 title: "你真坏，不能打开控制台喔!",
+                type: "error",
+                autoHide: !1,
+                time: "5000"
+            }), event.keyCode = 0, event.returnValue = !1, !1
+			if (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode) || (e.ctrlKey && 85 === e.keyCode)) 
+				return $.message({
+                message: "控制台躲起来啦",
+                title: "你还挺高级的嘛，居然会这招",
                 type: "error",
                 autoHide: !1,
                 time: "5000"
@@ -94,4 +102,5 @@ function forbidden_control() {
 }
 
 
-forbidden_control();
+//forbidden_control();
+btf.isJqueryLoad(forbidden_control());
