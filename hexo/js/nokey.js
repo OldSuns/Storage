@@ -103,4 +103,4 @@ function forbidden_control() {
 
 
 //forbidden_control();
-btf.isJqueryLoad(forbidden_control);
+btf.isJqueryLoad(forbidden_control)
