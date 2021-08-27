@@ -44,7 +44,7 @@ function forbidden_control() {
         }, document.oncontextmenu = function() {
             return $.message({
                 message: "右键菜单不见了？",
-                title: "不能右键/长按喔！",
+                title: "不能右键喔！",
                 type: "error",
                 autoHide: !1,
                 time: "5000"
