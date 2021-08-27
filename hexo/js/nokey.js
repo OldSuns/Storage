@@ -1,4 +1,4 @@
-// 禁止打开控制台和右键
+// 禁止打开控制台
 function forbidden_control() {
     $.extend({
             message: function(a) {
@@ -33,9 +33,9 @@ function forbidden_control() {
             }
         }),
         document.onkeydown = function(e) {
-            if (123 == e.keyCode || e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode) || (e.ctrlKey && 85 === e.keyCode)) 
+            if (123 == e.keyCode || e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode) || (e.ctrlKey && 85 === e.keyCode)) 
 				return $.message({
-                message: "F12躲起来啦",
+                message: "控制台躲起来啦",
                 title: "你真坏，不能打开控制台喔!",
                 type: "error",
                 autoHide: !1,
@@ -44,7 +44,7 @@ function forbidden_control() {
         }, document.oncontextmenu = function() {
             return $.message({
                 message: "右键菜单不见了？",
-                title: "不能右键喔！",
+                title: "不能右键/长按喔！",
                 type: "error",
                 autoHide: !1,
                 time: "5000"
@@ -93,14 +93,5 @@ function forbidden_control() {
         }()
 }
 
-//如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
-var h = window.innerHeight,w=window.innerWidth; 
-window.onresize = function () { 
-    if (h!= window.innerHeight||w!=window.innerWidth){ 
-        window.close(); 
-        window.location = "about:blank"; 
-    } 
-}
 
-btf.isJqueryLoad(forbidden_control)
-//forbidden_control();
+forbidden_control();
