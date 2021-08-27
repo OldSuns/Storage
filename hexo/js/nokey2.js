@@ -44,7 +44,7 @@ function forbidden_control() {
         }, document.oncontextmenu = function() {
             return $.message({
                 message: "右键菜单不见了？",
-                title: "不能右键/长按喔！",
+                title: "不能右键喔！",
                 type: "error",
                 autoHide: !1,
                 time: "5000"
@@ -91,6 +91,15 @@ function forbidden_control() {
                 }
             }), console.log(e)
         }()
+}
+
+//如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
+var h = window.innerHeight,w=window.innerWidth; 
+window.onresize = function () { 
+    if (h!= window.innerHeight||w!=window.innerWidth){ 
+        window.close(); 
+        window.location = "about:blank"; 
+    } 
 }
 
 btf.isJqueryLoad(forbidden_control)
