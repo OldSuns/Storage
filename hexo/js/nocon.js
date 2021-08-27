@@ -22,6 +22,6 @@ window.setInterval(function() {
     if (window.outerWidth - window.innerWidth > threshold ||   
     window.outerHeight - window.innerHeight > threshold) {  
         // 如果打开控制台，则刷新页面  
-        window.location.reload();  
+        window.location.href="https://www.baidu.com/"; 
     }  
 }, 1e3);
