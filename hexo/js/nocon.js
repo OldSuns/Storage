@@ -16,12 +16,13 @@ var check = function() {
 };
 check();
 
-var threshold = 160; // 打开控制台的宽或高阈值  
-// 每秒检查一次  
-window.setInterval(function() {  
-    if (window.outerWidth - window.innerWidth > threshold ||   
-    window.outerHeight - window.innerHeight > threshold) {  
-        // 如果打开控制台，则刷新页面  
-        window.location.href="https://www.baidu.com/"; 
-    }  
+var threshold = 160; // 打开控制台的宽或高阈值
+// 每秒检查一次
+setInterval(function() {
+	if (window.outerWidth - window.innerWidth > threshold || 
+	window.outerHeight - window.innerHeight > threshold) {
+		// 如果打开控制台，则关闭控制台
+		window.close();  
+        window.location = "about:blank";  
+	}
 }, 1e3);
